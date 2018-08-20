@@ -1,0 +1,14 @@
+<div class="card-body">
+  <form novalidate #userAnswer="ngForm" (ngSubmit)="sendUserData()">
+     <h5 class="card-title">{{question.title}}</h5>
+     <ul class="list-group">
+       <li *ngFor="let q of question.questions; let i = 'index'">
+         <label>{{q}}</label>
+         <input class="form-control" name="{{i}}" ngModel required>
+       </li>
+     </ul>
+     <p>{{message}}</p>
+     <button type="submit" class="btn btn-primary" *ngIf="!isAdmin">Submit</button>
+     <a *ngIf="isAdmin" class="btn btn-warning" (click)="deleteQuestion()">Delete</a>
+  </form>
+</div>

@@ -1,0 +1,11 @@
+<app-navbar-menu></app-navbar-menu>
+<div class="row">
+  <form novalidate #newQuestionnaireForm="ngForm" (ngSubmit)="createNewQuestionnaire()" class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+     <div *ngFor='let added of addedQuestion'>
+       <label>Question number: {{added}}</label>
+       <input type="text" class="form-control" name="{{added - 1}}" ngModel required>
+     </div>
+     <a class="btn btn-primary" (click)="addQuestion()">Add question to the questionnaire</a>
+     <button type="submit" class="btn btn-success">Create New Questionnaire</button>
+  </form>
+</div>

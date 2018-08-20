@@ -1,0 +1,38 @@
+<div class="signup-form" >
+    <form novalidate [formGroup] = "registrationForm"
+          (ngSubmit)="onSubmit()" >
+		<h2>Register</h2>
+		<p class="hint-text">Create your account. It's free and only takes a minute.</p>
+        <div class="form-group">
+    <div class="row">
+      <div class="col-xs-6"><input type="text" class="form-control" name="first_name" placeholder="First Name"></div>
+      <div class="col-xs-6"><input type="text" class="form-control" name="last_name" placeholder="Last Name"></div>
+			</div>
+    </div>
+    <div class="form-group">
+      <input type="email" class="form-control" name="login" placeholder="Email" formControlName="login" formControlName="email">
+        <div class="feedback" *ngIf="email.errors && (email.dirty || email.touched)">
+          <p *ngIf="email.errors.required">Email is required</p>
+          <p *ngIf="email.errors.pattern">Email should be on this format "youraddres@gmail.com"</p>
+        </div>
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" name="login" placeholder="User nickname" formControlName="login">
+        <div class="feedback" *ngIf="login.errors && (login.dirty || login.touched)">
+          <p *ngIf="login.errors.required">Login is required</p>
+        </div>
+    </div>
+		<div class="form-group">
+      <input type="password" class="form-control" name="password" placeholder="Password" formControlName="password">
+        <div class="feedback" *ngIf="password.errors && (password.dirty || password.touched)">
+          <p *ngIf="password.errors.required">Password is required</p>
+          <p *ngIf="password.errors.minlength">Min length is equal 8 symbols</p>
+          <p *ngIf="password.errors.maxlength">Max length is 20 characters</p>
+        </div>
+    </div>
+		<div class="form-group">
+        <button type="submit" class="btn btn-success btn-lg btn-block">Register Now</button>
+    </div>
+    <p *ngIf="message">{{message}}</p>
+    </form>
+<div class="text-center">Already have an account? <a [routerLink]="['/login']">Sign in</a></div>

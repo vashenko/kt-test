@@ -1,0 +1,7 @@
+<app-navbar-menu></app-navbar-menu>
+<app-question
+*ngFor="let q of questions"
+[question]="q"
+(questionDelete)="deleteQuestion(questions)"
+></app-question>
+

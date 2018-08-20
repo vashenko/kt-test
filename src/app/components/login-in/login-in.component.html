@@ -1,0 +1,36 @@
+<div class="signup-form" >
+    <form novalidate [formGroup]="logIn">
+		<h2>Sign in</h2>
+    <div class="form-group">
+      <input type="email" class="form-control" name="login" placeholder="Email" formControlName="email">
+      <div class="feedback" *ngIf="logInEmail.errors && (logInEmail.dirty || logInEmail.touched)">
+        <p *ngIf="logInEmail.errors.required">Email is required</p>
+        <p *ngIf="logInEmail.errors.pattern">Email should be on this format "youraddres@gmail.com"</p>
+      </div>
+    </div>
+		<div class="form-group">
+      <input type="password" class="form-control" name="password" placeholder="Password" formControlName="password">
+        <div class="feedback" *ngIf="logInPassword.errors && (logInPassword.dirty || logInPassword.touched)">
+          <p *ngIf="logInPassword.errors.required">Password is required</p>
+          <p *ngIf="logInPassword.errors.minlength">Min length is equal 8 symbols</p>
+          <p *ngIf="logInPassword.errors.maxlength">Max length is 20 characters</p>
+        </div>
+    </div>
+    <div class="form-group">
+       <button type="button" class="btn btn-primary btn-block" (click)="signInWithEmail()">
+        Log in
+       </button>
+    </div>
+    <div class="form-group">
+        <button type="buton" class="btn btn-block" (click)="signInWithFacebook()">
+          <i class="fab fa-facebook" aria-hidden="true"></i>
+          Login with Facebook
+        </button>
+
+        <button type="button" class="btn btn-block" (click)="signInWithGoogle()">
+          <i class="fab fa-google" aria-hidden="true"></i>
+          Login with Google
+        </button>
+    </div>
+    </form>
+<div>
