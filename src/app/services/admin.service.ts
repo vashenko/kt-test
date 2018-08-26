@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class AdminService {
 
-  logAsAdmin(email: string, password: any) {
+  logAsAdmin(email: string, password: string) {
     const admin = {
       email: email,
       password: password

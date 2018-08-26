@@ -15,7 +15,6 @@ export class SocialAuthService {
     this.user.subscribe(
       (user) => {
         if (user) {
-          console.log(user);
           this.userDetails = user;
         } else {
           this.userDetails = null;
@@ -37,7 +36,7 @@ export class SocialAuthService {
   }
 
   isLoggedIn() {
-    if (this.userDetails == null ) {
+    if (this.user === null ) {
       return false;
     } else {
       return true;

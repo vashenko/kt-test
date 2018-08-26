@@ -7,15 +7,13 @@ import {AngularFireAuth} from 'angularfire2/auth';
   providedIn: 'root'
 })
 export class FirebaseService {
-  questions: Question[];
+  questions: Question[] = [];
   database: any;
   user: any;
 
   constructor(private firebase: AngularFireDatabase,
               private fbAuth: AngularFireAuth) {
     this.database = this.firebase.database;
-    this.questions = new Array<Question>();
-
   }
 
   sendData(data) {
@@ -29,6 +27,7 @@ export class FirebaseService {
     this.firebase.list('/Questions/question')
       .valueChanges()
       .subscribe((questions): void => {
+        this.questions.length = 0;
         questions.forEach((item: Question[]) => {
           this.questions.push(new Question(item));
         });

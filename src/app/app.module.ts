@@ -17,7 +17,6 @@ import { MainComponent } from './components/main/main.component';
 
 import { RouterModule, Routes} from '@angular/router';
 
-import { LoggedInGuard } from './guard/logged-in.guard';
 import { AdminGuard} from './guard/admin.guard';
 
 
@@ -29,7 +28,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'registration', pathMatch: 'full' },
   { path: 'login', component: LoginInComponent},
   { path: 'registration', component: RegistrComponent},
-  { path: 'main', component: MainComponent, canActivate: [LoggedInGuard]},
+  { path: 'main', component: MainComponent, },
 
   {
     path: 'test',
@@ -64,7 +63,6 @@ const routes: Routes = [
 
   ],
   providers: [
-    LoggedInGuard,
     AdminGuard,
     QuestionDataService,
     SocialAuthService,

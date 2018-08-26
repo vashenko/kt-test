@@ -25,7 +25,7 @@ export class LoginInComponent implements OnInit {
   signInWithFacebook() {
     this.socailAuthService.signInWithFacebook()
       .then((res) => {
-        this.router.navigate(['/test']);
+        this.router.navigate(['/main']);
       })
       .catch((err) => console.log(err));
   }
@@ -33,20 +33,20 @@ export class LoginInComponent implements OnInit {
   signInWithGoogle() {
     this.socailAuthService.signInWithGoogle()
       .then((res) => {
-        this.router.navigate(['/test']);
+        this.router.navigate(['/main']);
       })
       .catch((err) => console.log(err));
   }
 
   signInWithEmail() {
-    if (this.adminService.logAsAdmin(this.logInEmail.value, this.logInPassword.value)) {
+    if (this.adminService.logAsAdmin(this.logInEmail.value, this.logInPassword.value )) {
       this.router.navigate( ['/admin']);
-      return;
+      return true;
     }
+
     this.socailAuthService.signInRegular(this.logInEmail.value, this.logInPassword.value)
       .then((res) => {
-        console.log(res);
-        this.router.navigate(['/test']);
+        this.router.navigate(['/main']);
       })
       .catch((err) => console.log('error: ' + err));
   }

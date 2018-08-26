@@ -15,7 +15,7 @@ import {Observable} from 'rxjs';
 export class QuestionComponent implements OnInit {
   @HostBinding('attr.class') cssClass = 'col-lg-6 col-md-6 col-sm-6 col-xs-12 card';
   @Input() question: Observable<Question[]>;
-  // @Output() questionDelete = new EventEmitter<Question>();
+  @Output() questionDelete = new EventEmitter<Question>();
   @ViewChild ('userAnswer') userData: any;
 
 
@@ -30,11 +30,6 @@ export class QuestionComponent implements OnInit {
   deleteQuestion(event, item) {
 
   }
-
-  showKey(){
-
-  }
-
   sendUserData() {
     if (this.userData.valid) {
       this.dataSent();

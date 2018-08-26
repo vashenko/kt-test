@@ -1,8 +1,8 @@
 export class Question {
-  questions: string[];
+  questions: any[];
 
 
-  constructor(questions: string[]) {
+  constructor(questions: any[]) {
     this.questions = questions;
   }
 }
